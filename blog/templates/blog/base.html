@@ -1,0 +1,174 @@
+{% load blog_tags %}
+{% load staticfiles %}
+{% load static %}
+{% include "blog/navigation.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap 4 Two Column Grid Layouts for Tablets and Desktops</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/custom.css" >
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+ul1 {
+    padding: 20px;
+    font-size: 35px;
+    width: 30px;
+    margin: 5px 2px;
+    border-radius: 50%;
+    left: 50%;
+    display: flex;
+    list-style: none;
+    transition: 6%
+    line-height: 60%;
+    color: #000;
+}
+
+
+li1 {
+    list-style: none;
+    margin: 0 10px;
+}
+
+
+.fa {
+    color: #000;
+    transition: 6%;
+    line-height: 60px;
+}
+
+
+.container2 ul li a  {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 90%;
+    background-color:#fff;
+    text-align: center;
+    transition: 6%;
+    box-shadow: 0 5px 4px rgba(0,0,0,.5);
+}
+
+
+ li1:hover{
+    transform: translate(0,-10px);
+</style>
+</head>
+
+<body><em>
+    <style>
+.container1 {
+    background-image: url("{% static 'blog/images/husna.jpg' %}");
+    background-size: cover;
+    margin: auto;
+    padding: 0;
+    top: 50;
+    background-position: center center;
+    text-align: center;
+    text-color: white;
+    background-repeat: no repeat;
+    height: 800px;
+}
+
+
+.fa:hover {
+    background-color: #fff;
+}
+
+</style>
+  <div class="container1 ">
+    <h1>hr</h1>
+    <p></p>
+
+  </div>
+
+    <div class="container mt-5 text-center">
+        <h1>Home</h1>
+    </div>
+ <div class="container mt-5 text-center"
+    <p>Hello everyone,
+    <p>welcome to my page.</p>
+    <p>    This is where I'll be sharing all of my new recipes,</p>
+        <p>adventures, fashion tips, write ups and many more with you all.</p>
+    <p>I hope you'll love what you see here.</p>
+    <p>   I still can't believe I'm hopping into this.</p>
+    <p>Anyway,</p>
+        welcome to the family.
+    </p>
+    </div>
+<div class="container mt-5 ">
+        <!--Row with two equal columns-->
+        <div class="row ">
+            <div class="col-md-6 ">
+                <div class="container"
+                <div class="demo-content"><h1>Search for posts</h1>
+<form action="." method="get">
+    <input type="text" name="q" placeholder="search posts" class="form-control"/>
+    <br>
+    <input type="submit" class="btn btn-info" value="Search">
+</form>
+{% if results %}
+    <h1>Posts containing "{{ query }}"</h1>
+    <ul>
+        <i>{% for post in results %}
+            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+            {{ post.body|truncatewords:5 }}
+
+        {% endfor %}
+        </i>
+
+    </ul>
+{% else %}
+    {% if query %}
+        <p>No results found.</p>
+    {% else %}
+        <p>Type a search query into the box above, and press "Submit" to search.</p>
+{% endif %}
+{% endif %}
+
+<h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+
+</div>
+            </div>
+            <div class="col-md-6">
+                <div class="container"
+                <div class="demo-content bg-alt"><div id="sidebar">
+    <h2>My blog</h2>
+    <p>This is my blog. I've written {% total_posts %} posts so far.</p>
+    <h3>Latest posts</h3>
+    {% show_latest_posts 3 %}
+    <h3>Most commented posts</h3>
+    {% get_most_commented_posts as most_commented_posts %}
+    <ul>
+        {% for post in most_commented_posts %}
+        <li>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+</div>
+            </div>
+        </div>
+</em>
+<div class="container2 mt-5">
+    <ul1>
+        <li1><a href="https://facebook.com/usman.kabir.37"><i class="fa fa-facebook"></i></a></li1>
+        <li1><a href="https://instagram.com/uthman_turaju"><i class="fa fa-instagram"></i></a></li1>
+        <li1><a href="https://twitter.com/uthman399"><i class="fa fa-twitter"></i></a></li1>
+        <li1><a href="https://linkedin.com/in/usman-turajo-07511419a"><i class="fa fa-linkedin"></i></a></li1>
+    </ul1>
+</div>
+        </body>
+</html>

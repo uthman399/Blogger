@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<h1>Search for posts</h1>
+<i><form action="." method="get">
+    <input type="text " name="q" placeholder="search posts"/>
+    <br>
+    <input type="submit" value="Search">
+</form>
+{% if results %}
+    <p>You searched for "{{ query }}"; the results are listed below.</p>
+    <ul>
+        {% for post in results %}
+            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    {% if query %}
+        <p>No results found.</p>
+    {% else %}
+        <p>Type a search query into the box above, and press "Submit" to search.</p>
+{% endif %}
+{% endif %}
+
+<h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+
+
+{% endblock %}
