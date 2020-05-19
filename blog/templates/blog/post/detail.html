@@ -16,8 +16,11 @@
     <h1>{{ post.title }}</h1>
     <p class="date">
         Published {{ post.publish }} by husnah
-        <img src="{% if post.image %}{{ post.image.url }}{% else %}{% endif %}">
+        <br>
+        <br>
+        <img src="{% if post.image %}{{ post.image.url }}{% else %}{% endif %}" class="mx-auto d-block" style="width:80%">
     </p>
+        <br>
     {{ post.body|markdown }}
     <p>
         <a href="{% url "blog:post_share" post.id %}">
@@ -43,6 +46,7 @@
     {% if new_comment %}
         <h2>Your comment has been added.</h2>
     {% else %}
+        <br>
         <h2>Add a new comment</h2>
        <div class="col-6 bg-light">
         <i><form action="." method="post">
