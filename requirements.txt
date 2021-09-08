@@ -11,7 +11,7 @@ elasticsearch==7.6.0
 gunicorn==20.0.4
 idna==2.9
 Markdown==2.6.2
-Pillow==7.1.2
+Pillow==8.3.2
 psycopg2==2.8.5
 pysolr==3.3.2
 pytz==2019.3
